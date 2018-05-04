@@ -52,6 +52,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        if let beaconRegion = region as? CLBeaconRegion {
+            print("DID ENTER REGION: uuid: \(beaconRegion.proximityUUID.uuidString)")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        if let beaconRegion = region as? CLBeaconRegion {
+            print("DID EXIT REGION: uuid: \(beaconRegion.proximityUUID.uuidString)")
+        }
+    }
     func locationManager(didRangeBeacons beacons: [AnyObject],
                          inRegion region: CLBeaconRegion!) {
         print("didRangeBeacons");
