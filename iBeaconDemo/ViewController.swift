@@ -53,6 +53,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        
         guard let beaconRegion = region as? CLBeaconRegion else {
             return
         }
@@ -61,9 +62,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        
         guard let beaconRegion = region as? CLBeaconRegion else {
             return
         }
+        
         print("DID EXIT REGION: uuid: \(beaconRegion.proximityUUID.uuidString)")
     }
     
